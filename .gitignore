@@ -138,6 +138,5 @@ dmypy.json
 # Data 
 data/
 
-# Added files:
-Zindi_Fraud_Detection_Starter.ipynb
-results/SampleSubmission.csv
+# Results
+results/
