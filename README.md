@@ -1,188 +1,93 @@
-[![Shipping files](https://github.com/neuefische/ds-ml-project-template/actions/workflows/workflow-02.yml/badge.svg?branch=main&event=workflow_dispatch)](https://github.com/neuefische/ds-ml-project-template/actions/workflows/workflow-02.yml)
+# Can you help Tunisian company STEG detect fraud?
+The Tunisian Company of Electricity and Gas (STEG) is a public and a non-administrative company, it is responsible for delivering electricity and gas across Tunisia. The company suffered tremendous losses in the order of 200 million Tunisian Dinars due to fraudulent manipulations of meters by consumers.
 
-# Template Repo for ML Project
+Using the client’s billing history, the aim of the challenge is to detect and recognize clients involved in fraudulent activities.
 
-This template repo will give you a good starting point for your second project. Besides the files used for creating a virtual environment, you will find a simple example of how to build a simple model in a python script. This is maybe the simplest way to do it. We train a simple model in the jupyter notebook, where we select only some features and do minimal cleaning. The output is then stored in simple python scripts.
+The solution will enhance the company’s revenues and reduce the losses caused by such fraudulent activities.
 
-The data used for this is: [coffee quality dataset](https://github.com/jldbc/coffee-quality-database).
+About STEG (https://www.steg.com.tn/en/institutionnel/mission.html)
 
----
+The Tunisian Company of Electricity and Gas (STEG) is a public and a non-administrative company. It is responsible for delivering electricity and gas across Tunisia. 
 
-## Set up a Kanban board on github
+Client:
 
-Go to ML-Project Template.
+    Client_id: Unique id for client
+    District: District where the client is
+    Client_catg: Category client belongs to
+    Region: Area where the client is
+    Creation_date: Date client joined
+    Target: fraud:1 , not fraud: 0
 
-1. Click on "Use this Template" (Blue button)
-![alt text](./images/step_1a_new.png)
+Invoice data
 
-1. Create new repository with relevant name, the owner should be your own account. 
-![alt text](./images/step_2_new.png)
+    Client_id: Unique id for the client
+    Invoice_date: Date of the invoice
+    Tarif_type: Type of tax
+    Counter_number:
+    Counter_statue: takes up to 5 values such as working fine, not working, on hold statue, ect
+    Counter_code:
+    Reading_remarque: notes that the STEG agent takes during his visit to the client (e.g: If the counter shows something wrong, the agent gives a bad score)
+    Counter_coefficient: An additional coefficient to be added when standard consumption is exceeded
+    Consommation_level_1: Consumption_level_1
+    Consommation_level_2: Consumption_level_2
+    Consommation_level_3: Consumption_level_3
+    Consommation_level_4: Consumption_level_4
+    Old_index: Old index
+    New_index: New index
+    Months_number: Month number
+    Counter_type: Type of counter [Gas, Electrik]
 
-1. In your newly create repo, navigate to "Projects", and then click on "Link a project" (blue button). Normally you don't have created a project yet, so you can click the arrow navigation to create project on your profile. This project can be added at the end to your repository.
-![alt text](./images/add_project_new.png)
+Evaluation
 
+The metric used for this challenge is Area Under the Curve.
 
-4.  You will be guided to your profiles projects and it will be shown a create project window. Choose "board" view and **not** "table" view.
- ![alt text](./images/choose_board.png)
-5. Now change the name of your board, to match that of your chosen ML project. Then click "Create project" blue button. Great you create Kanban Board
-![alt text](./images/create_project_new.png)
+Then the submission file should be as follows:
 
-6. Next, assign rights to all your team members by clicking on the 3 dots on the top right of the board, and then go to "Settings".
-![alt text](./images/kanban_settings.png)
+|client_id       |target|
+|----------------|------|
+|test_Client_0   |0.986|
+|test_Client_1   |0.011|
+|test_Client_10  |0.734|
 
+# Steg: payment Method
+The Bill
 
-7. Next, click on "Manage Access". Add your team mates by Searching for their github handle in the search window.Change their Role from ‘Write’ to ‘Admin’. Click on the blue button “Invite” to add them. Repeat for all team members.
-![alt text](./images/team_access_new.png
-)
+The bill is bimonthly. It is established further to a four-month meter reading in urban area and a six-month meter reading in rural area or further to an estimation based on your last 12 months consumption (intermediary bill).
+Intermediary bill
 
-8. Next,go back to the kanban board and at the bottom  add action items with the relevant name e.g. “load data”, "get statistics", etc.
-![alt text](./images/load_data_item.png
-)
+It involves the estimated amount of your consumption calculated according to your previous consumption added to due fees, the estimated amount of RTT (Tunisian Radio and Television) contribution and the different payment facilities (connection or others).
+Regarding new subscribers, no advance payment would be invoiced to them as long as their meter has not been read.
+The net to be paid of this bill will be deduced on the bill involving the actual reading of your consumption.
+How to pay ?
+Monthly payment
 
+It enables you to spread your yearly electricity consumption over twelve month bills deducted directly from your bank or postal account.Monthly amounts are calculated on the basis of your past year's consumption which is brought up to date every year.
 
-9. Convert added item to issue by clicking on the 3 dots on the particular added item.
-![alt text](./images/convert_to_issue.png
-)
+How to do ?
 
-10. Then select the repo you created  for the issue to be added. (Select the project repo example “my-project-name”)
-![alt text](./images/select_repo.png
-)
+You send or deposit at your district a deduction authorization on your postal or bank account.
+Authorized Payment 
 
-11. When in project repo, Go to issues, then go to milestones. 
-![alt text](./images/to_milestones.png
-)
+The amount of each of your bills is automatically deducted from the current postal or bank account you have indicated.
 
-12. Click on ”New milestone”.
+How to do ?
 
-13. Give the milestone a due date and description as per the example provided by the coaches. Add description of: 
+You send your district your approval of payment. STEG sends you your consumption bill by mail for information. If you have no remarks or objections regarding the amount of your power consumption,  the due amount will be automatically withdrawed from your current account, 15 days after receiving your invoice.
+Payment at the Post Desks
 
-    A) What needs to be completed to be done with the milestone
+You can pay your bill at any  post-desk.
+Payment at SONEDE windows
 
-    B) The definition of done: what will your result look like when you have completed the milestone? (check the provided format)
-![alt text](./images/new_milestone.png)
+You have the possibility to pay your bill in almost all SONEDE pay-desk.
+Online Payment 
 
-14. Now navigate to "issues".
+Our online payment services allow you to pay your bill via your personal computer.
 
-15. Assign issues to milestones 
-![alt text](./images/milestone_to_issue_new.png)
+Reducing your bill
 
-16. Give it assignees (people who will work on the task). 
-![alt text](./images/milestone_to_someone.png)
-
-### Optional: Add workflows
-
-Workflows can help you keep your kanban board automatically on track. 
-
-Select the project created in the steps above.  
-
-Click on the 3 dots to the far right of the board (...)
-
-Select workflow as the first option. 
-
-Activate the ones you feel necessary to your project
-
-Go back to your project repository (fraud detection))
-
-## Set up your Environment
-
-
-
-### **`macOS`** type the following commands : 
-
-- For installing the virtual environment you can either use the [Makefile](Makefile) and run `make setup` or install it manually with the following commands:
-
-     ```BASH
-    make setup
-    ```
-    After that active your environment by following commands:
-    ```BASH
-    source .venv/bin/activate
-    ```
-Or ....
-- Install the virtual environment and the required packages by following commands:
-
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-    
-### **`WindowsOS`** type the following commands :
-
-- Install the virtual environment and the required packages by following commands.
-
-   For `PowerShell` CLI :
-
-    ```PowerShell
-    pyenv local 3.11.3
-    python -m venv .venv
-    .venv\Scripts\Activate.ps1
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-
-    For `Git-bash` CLI :
-  
-    ```BASH
-    pyenv local 3.11.3
-    python -m venv .venv
-    source .venv/Scripts/activate
-    python -m pip install --upgrade pip
-    pip install -r requirements.txt
-    ```
-
-    **`Note:`**
-    If you encounter an error when trying to run `pip install --upgrade pip`, try using the following command:
-    ```Bash
-    python.exe -m pip install --upgrade pip
-    ```
-
-
-   
-## Usage
-
-In order to train the model and store test data in the data folder and the model in models run:
-
-**`Note`**: Make sure your environment is activated.
-
-```bash
-python example_files/train.py  
-```
-
-In order to test that predict works on a test set you created run:
-
-```bash
-python example_files/predict.py models/linear_regression_model.sav data/X_test.csv data/y_test.csv
-```
-
-## Limitations
-
-Development libraries are part of the production environment, normally these would be separate as the production code should be as slim as possible.
-
-
----
-
-## Handling Merge Conflicts in Jupyter Notebooks
-
-When working in teams, `.ipynb` files can cause messy merge conflicts because they’re JSON-based.  
-We use **nbdime** to make this easy.
-
-### Setup (run once)
-```bash
-nbdime config-git --enable
-```
-
-### When a conflict happens
-```bash
-nbdime mergetool
-```
-
-A web interface will open showing both notebook versions side by side.
-Choose what to keep, save and close tool, then:
-```bash
-git add your_notebook.ipynb
-git commit -m "Resolved notebook conflict"
-```
-That’s it — clean merges for notebooks!
+    Do not forget to turn off the lights when not needed.
+    Remember that daylight is costless, so profit from it .
+    Make a good choice and know how to adapt your lighting to your needs; you will profit from comfort and save money.
+    If you have refrigerating devices, place them away from any heat source.
+    Electric heater is expensive, try to reduce its use as much as you can.
+    Control  the progress of your consumption regularly, either from meters or from the information mentioned on your bills.
