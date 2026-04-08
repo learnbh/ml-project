@@ -92,7 +92,7 @@ Reducing your bill
     Electric heater is expensive, try to reduce its use as much as you can.
     Control  the progress of your consumption regularly, either from meters or from the information mentioned on your bills.
 
-    # EDA
+    # EDA and Data cleaning
     - objects: invoice_date, counter_statue, counter_type
 - classes, but not with type object: tarif_type, counter_code, reading_remarque, counter_coefficient, months_number
 
@@ -115,26 +115,4 @@ Reducing your bill
 
 - consommation_levels
 
-# Feature ideas
-Hier sind einige Ansätze, die dir helfen können:
-🔍 Typische Betrugsmuster bei Stromzählern
-Muster	Erkennungsmerkmal
-Manipulation des Zählers	Plötzlicher Verbrauchsrückgang trotz gleichem Nutzungsverhalten
-Zähler-Rücksetzung	old_index > new_index oder ungewöhnliche Sprünge
-Unregelmäßige Ablesungen	Fehlende Werte oder lange Lücken in reading_remarque
-Verbrauch außerhalb der Norm	Abweichung von consommation_level_* im Vergleich zu ähnlichen Kunden
-📊 Feature Engineering Ideen
-
-Basierend auf deinen Spalten könntest du folgende Features erstellen:
-
-# Verbrauchstrends
-df['consumption_trend'] = df.groupby('client_id')['consommation_level_4'].transform(lambda x: x.pct_change())
-
-# Zählerstand-Konsistenz
-df['index_anomaly'] = (df['old_index'] > df['new_index']).astype(int)
-
-# Verbrauch pro Monat normalisieren
-df['avg_monthly_consumption'] = df['consommation_level_4'] / df['months_number']
-
-# Abweichung vom Tarif-Durchschnitt
-df['consumption_vs_tarif_avg'] = df['consommation_level_4'] / df.groupby('tarif_type')['consommation_level_4'].tr
+# Feature engineering
